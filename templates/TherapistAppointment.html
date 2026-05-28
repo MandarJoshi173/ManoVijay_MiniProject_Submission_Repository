@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ManoVijay</title>
+        <style>
+            body{
+                background-image: url("{% static 'images/MonkBackgroundImage2.png' %}");
+                background-size: cover;
+                background-repeat: repeat-y;
+            }
+            .divtheme{
+                background-color: rgba(240,240,240,0.5);
+                border: solid;
+                border-color: black;
+                width: fit-content;
+                height: fit-content;
+            }
+            .tdtheme{
+
+                padding-left: 60px;
+                padding-right:60px;
+                height:10px;
+                justify-content: center;
+                transition-property: height;
+                transition-duration: 1s;
+                transition-timing-function: ease;
+                text-transform: uppercase;
+            }
+            .tdtheme:hover{
+                background-color: orange;
+                border-radius: 40px;
+                width: max-content;
+                height: 50px;
+                border: solid black;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            .imgtheme{
+                position: absolute;
+                bottom: 0px;
+                right: 1px;
+
+            }
+            .backarrowtheme{
+                position: absolute;
+                top:2px;
+                right:1px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="tdtheme"><a href="TherapistProfileLink">Profile</a></td>
+                <td class="tdtheme"><a href="TherapistBlogsLink">Blogs</a></td>
+                <td class="tdtheme"><a href="TherapistFeedbackLink">Feedback</a></td>
+                <td class="tdtheme"><a href="TherapistAppointmentLink">Appointment</a></td>
+                <td class="tdtheme"><a href="TherapistNotificationsLink">Notifications</a></td>
+            </tr>
+        </table>
+    <a href="TherapistLogoutLink"><img src="{% static "images/Logout logo 2.png" %}" class="imgtheme"/></a>
+        <div class="divtheme">
+        <table>
+            <tr>
+                <td>userId</td>
+                <td>therapistName</td>
+                <td>AppointmentDate</td>
+                <td>AppointmentTime</td>
+                <td>Status</td>
+            </tr>
+            {% for data in list %}
+            <tr>
+                <td>{{ data.0 }}</td>
+                <td>{{ data.1 }}</td>
+                <td>{{ data.2 }}</td>
+                <td>{{ data.3 }}</td>
+                <td>{{ data.4 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    <div class="divtheme">
+        <form method="post" action="TherapistAppointmentActionCode">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><h3>Appointment Approval Form for Admin</h3></td>
+                </tr>
+                <tr>
+                    <td>User-Id:</td>
+                    <td><input type="text" name="userId"/></td>
+                </tr>
+
+                <tr>
+                    <td>Status:</td>
+                    <td><select name="status"><option>Pending</option><option>Approved</option></select></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="submit"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </div>
+        <br>
+        <br>
+        <iframe src="https://calendar.google.com/calendar/embed?src=mandarjoshi105%40gmail.com&ctz=Asia%2FKolkata" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        <br>
+        <br>
+    <a href="TherapistDashboardReturnLink"><img src="{% static 'images/Back button.png' %}" class="backarrowtheme"/></a>
+    </body>
+</html>

@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ManoVijay</title>
+        <style>
+            body{
+                background-image: url("{% static 'images/MonkBackgroundImage2.png' %}");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .divtheme{
+                background-color: rgba(240,240,240,0.5);
+                border: solid;
+                border-color: black;
+                width: fit-content;
+                height: fit-content;
+            }
+            .tdtheme{
+
+                padding-left: 220px;
+                padding-right:220px;
+                height:10px;
+                justify-content: center;
+                transition-property: height;
+                transition-duration: 1s;
+                transition-timing-function: ease;
+                text-transform: uppercase;
+            }
+            .tdtheme:hover{
+                background-color: orange;
+                border-radius: 40px;
+                width: max-content;
+                height: 50px;
+                border: solid black;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            .imgtheme{
+                position: absolute;
+                bottom: 0px;
+                right: 1px;
+
+            }
+            .backarrowtheme{
+                position: absolute;
+                bottom:0px;
+                left: 1px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="tdtheme"><a href="TherapistUpdateProfileLink">Update Profile</a></td>
+                <td class="tdtheme"><a href="TherapistDeleteProfileLink">Request to delete profile</a></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>TherapistId</td>
+                <td>profilePic</td>
+                <td>TherapistName</td>
+                <td>Password</td>
+                <td>EmailId</td>
+                <td>DateOfBirth</td>
+                <td>Gender</td>
+                <td>Experience</td>
+                <td>Qualification</td>
+
+            </tr>
+            {% for data in list %}
+                <tr>
+                <td>{{ data.0 }}</td>
+                <td>{{ data.1 }}</td>
+                <td>{{ data.2 }}</td>
+                <td>{{ data.3 }}</td>
+                <td>{{ data.4 }}</td>
+                <td>{{ data.5 }}</td>
+                <td>{{ data.6 }}</td>
+                <td>{{ data.7 }}</td>
+                <td>{{ data.8 }}</td>
+                </tr>
+                {% endfor %}
+
+        </table>
+    <a href="TherapistLogoutLink"><img src="{% static "images/Logout logo 2.png" %}" class="imgtheme"/></a>
+    <a href="TherapistDashboardReturnLink"><img src="{% static 'images/Back button.png' %}" class="backarrowtheme"/></a>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ManoVijay</title>
+        <style>
+            body{
+                background-image: url("{% static 'images/MonkBackgroundImage2.png' %}");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .divtheme{
+                background-color: rgba(240,240,240,0.5);
+                border: solid;
+                border-color: black;
+                width: fit-content;
+                height: fit-content;
+            }
+            .tdtheme{
+
+                padding-left: 80px;
+                padding-right:80px;
+                height:10px;
+                justify-content: center;
+                transition-property: height;
+                transition-duration: 1s;
+                transition-timing-function: ease;
+                text-transform: uppercase;
+            }
+            .tdtheme:hover{
+                background-color: orange;
+                border-radius: 40px;
+                width: max-content;
+                height: 50px;
+                border: solid black;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            .imgtheme{
+                position: absolute;
+                bottom: 0px;
+                right: 1px;
+
+            }
+            .backarrowtheme{
+                position: absolute;
+                bottom:0px;
+                left:1px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="tdtheme"><a href="UserProfileLink">Profile</a></td>
+                <td class="tdtheme"><a href="UserViewLink">View</a></td>
+                <td class="tdtheme"><a href="FeedbackLink">Feedback</a></td>
+                <td class="tdtheme"><a href="UserAppointmentLink">Appointment</a></td>
+                <td class="tdtheme"><a href="NotificationsLink">Notifications</a></td>
+            </tr>
+        </table>
+    <a href="LogoutLink"><img src="{% static "images/Logout logo 2.png" %}" class="imgtheme"/></a>
+    <table>
+        <tr>
+            <td>Sno</td>
+            <td>UserType</td>
+            <td>Notifications</td>
+            <td>Date</td>
+        </tr>
+        <tr>
+            {% for data in list %}
+            <td>{{data.0}}</td>
+            <td>{{data.1}}</td>
+            <td>{{ data.2 }}</td>
+            <td>{{ data.3 }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+
+    <a href="UserDashboardReturnLink"><img src="{% static 'images/Back button.png' %}" class="backarrowtheme"/></a>
+    </body>
+</html>

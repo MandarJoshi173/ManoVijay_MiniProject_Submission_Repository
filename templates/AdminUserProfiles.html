@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ManoVijay</title>
+        <style>
+            body{
+                background-image: url("{% static 'images/MonkBackgroundImage2.png' %}");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .divtheme{
+                background-color: rgba(240,240,240,0.5);
+                border: solid;
+                border-color: black;
+                width: fit-content;
+                height: fit-content;
+            }
+            .tdtheme{
+
+                padding-left: 230px;
+                padding-right:230px;
+                height:10px;
+                justify-content: center;
+                transition-property: height;
+                transition-duration: 1s;
+                transition-timing-function: ease;
+                text-transform: uppercase;
+            }
+            .tdtheme:hover{
+                background-color: orange;
+                border-radius: 40px;
+                width: max-content;
+                height: 50px;
+                border: solid black;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            .imgtheme{
+                position: absolute;
+                bottom: 0px;
+                right: 1px;
+
+            }
+            .backarrowtheme{
+                position: absolute;
+                bottom:0px;
+                left:1px;
+            }
+        </style>
+
+    </head>
+    <body>
+    <table>
+            <tr>
+                <td class="tdtheme"><a href="AdminUserProfileLink"> Users Profiles</a></td>
+                <td class="tdtheme"><a href="AdminTherapistProfileLink">Therapist Profiles</a></td>
+            </tr>
+    </table>
+    <div class="divtheme">
+        <form method="post" action="AdminUserProfileDeletionActionCode">
+            {% csrf_token %}
+            <table>
+                <tr><td>Enter User Id of the Profile to be deleted</td></tr>
+                <tr><td><input type="text" name="userId"/></td></tr>
+                <tr><td><input type="submit" value="Delete"/> </td></tr>
+            </table>
+        </form>
+    </div>
+    <a href="LogoutLink"><img src="{% static "images/Logout logo 2.png" %}" class="imgtheme"/></a>
+
+    <a href="AdminProfileReturnLink"><img src="{% static 'images/Back button.png' %}" class="backarrowtheme"/></a>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ManoVijay</title>
+        <style>
+            body{
+                background-image: url("{% static 'images/MonkBackgroundImage2.png' %}");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .divtheme{
+                background-color: rgba(240,240,240,0.5);
+                border: solid;
+                border-color: black;
+                width: fit-content;
+                height: fit-content;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="divtheme">
+            <form action="AdminLoginActionCode" method="POST">
+                {% csrf_token %}
+                <table>
+                <tr><td><h1>ADMIN LOGIN FORM</h1></td></tr>
+                <tr><td><img src=""/> </td></tr>
+                <tr><td><input type="text" placeholder="Enter User id here" name="userId"/></td></tr>
+                <tr><td><input type="password" placeholder="Enter Password here" name="password" urlpattern="*"/></td></tr>
+                <tr><td><input type="submit" value="LOGIN"/> </td></tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

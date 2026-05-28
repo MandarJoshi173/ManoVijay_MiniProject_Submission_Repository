@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ManoVijay</title>
+        <style>
+            body{
+                background-image: url("{% static 'images/MonkBackgroundImage2.png' %}");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .divtheme{
+                background-color: rgba(240,240,240,0.5);
+                border: solid;
+                border-color: black;
+                width: fit-content;
+                height: fit-content;
+            }
+            .tdtheme{
+
+                padding-left: 60px;
+                padding-right:60px;
+                height:10px;
+                justify-content: center;
+                transition-property: height;
+                transition-duration: 1s;
+                transition-timing-function: ease;
+                text-transform: uppercase;
+            }
+            .tdtheme:hover{
+                background-color: orange;
+                border-radius: 40px;
+                width: max-content;
+                height: 50px;
+                border: solid black;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            .imgtheme{
+                position: absolute;
+                bottom: 0px;
+                right: 1px;
+
+            }
+            .backarrowtheme{
+                position: absolute;
+                bottom:0px;
+                left:1px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="tdtheme"><a href="TherapistProfileLink">Profile</a></td>
+                <td class="tdtheme"><a href="TherapistBlogsLink">Blogs</a></td>
+                <td class="tdtheme"><a href="TherapistFeedbackLink">Feedback</a></td>
+                <td class="tdtheme"><a href="TherapistAppointmentLink">Appointment</a></td>
+                <td class="tdtheme"><a href="TherapistNotificationsLink">Notifications</a></td>
+            </tr>
+        </table>
+    <a href="TherapistLogoutLink"><img src="{% static "images/Logout logo 2.png" %}" class="imgtheme"/></a>
+    <div class="divtheme">
+        <form method="post" action="{% url 'TherapistFeedbackActionCode' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td><h3>Feedback Form for Admin</h3></td>
+                </tr>
+                <tr>
+                    <td>User-Id:</td>
+                    <td><input type="text" name="userId"/></td>
+                </tr>
+
+                <tr>
+                    <td>Feedback:</td>
+                    <td><textarea rows="5" cols="20" name="feedback">Enter the feedback here</textarea></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="submit"/>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <a href="TherapistDashboardReturnLink"><img src="{% static 'images/Back button.png' %}" class="backarrowtheme"/></a>
+    </body>
+</html>

@@ -1,0 +1,99 @@
+{% load static %}
+<! DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ManoVijay</title>
+        <style>
+            .welcomediv{
+                margin-left: 600px;
+            }
+            .tdtheme{
+                padding-top: 30px;
+                border: none;
+            }
+            #customerbuttontheme1{
+                margin-left: 25%;
+                margin-right:65%;
+                width:max-content;
+                height:40px;
+                border-radius: 20px;
+                background-color: #FEDC00;
+                font-weight: bold;
+                font-family: sans-serif;
+                font-style: italic;
+                box-shadow: -10px 10px 10px #FEDC00;
+            }
+            #customerbuttontheme2{
+                margin-left: 165px;
+                width:max-content;
+                height:40px;
+                border-radius: 20px;
+                background-color: #FEDC00;
+                font-weight: bold;
+                font-family: sans-serif;
+                font-style: italic;
+                box-shadow: -10px 10px 10px #FEDC00;
+            }
+            h1{
+                color: #FEDC00;
+                text-shadow:
+                    2px -1px 0 black,
+                    2px -1px 0 black,
+                    -1px  1px 0 black,
+                    2px  1px 0 black;
+            }
+            h2{
+                color: #FEDC00;
+                text-shadow:
+                    2px -1px 0 black,
+                    2px -1px 0 black,
+                    -1px  1px 0 black,
+                    2px  1px 0 black;
+            }
+            p{
+                color: #FEDC00;
+                text-shadow:
+                    1px -1px 0 black,
+                    1px -1px 0 black,
+                    -1px  1px 0 black,
+                    1px  1px 0 black;
+            }
+body{
+    background-image: url('{% static 'images/MonkBackgroundImage2.png' %}');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+        </style>
+
+    </head>
+    <body>
+
+        <div class="welcomediv">
+            <form method="post" action="LoginPageLink">
+                {% csrf_token %}
+            <table>
+                <tr>
+                    <td class="tdtheme"><label><h1>ManoVijay:</h1><h2>Battling the darkness deep within</h2></label></td>
+                </tr>
+                <tr>
+                    <td class="tdtheme">
+                    <p>ManoVijay aims to be a comprehensive source of reliable, research-based information on a wide range of mental health and wellness topics.<br>Our goal is to empower individuals of all ages to lead healthier, more fulfilling lives.<br> We do that by allowing users to book live appointments with suitable therapists as well as providing them with videos and blogs holding<br> quality information and productivity tools like the Pomodoro timer.</p>
+                </td>
+                </tr>
+                <tr>
+                    <td class="tdtheme"><input type="submit" value="Get Started as customer" id="customerbuttontheme1" /></td>
+                </tr>
+            </table>
+            </form>
+            <form method="post" action="TherapistLoginPageLink">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td class="tdtheme"><input type="submit" value="Get Started as Therapist" id="customerbuttontheme2" /></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

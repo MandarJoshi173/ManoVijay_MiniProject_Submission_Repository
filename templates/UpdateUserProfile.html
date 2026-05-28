@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>ManoVijay</title>
+        <style>
+            body{
+                background-image: url("{% static 'images/MonkBackgroundImage2.png' %}");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .divtheme{
+                background-color: rgba(240,240,240,0.5);
+                border: solid;
+                border-color: black;
+                width: fit-content;
+                height: fit-content;
+            }
+            .tdtheme{
+
+                padding-left: 220px;
+                padding-right:220px;
+                height:10px;
+                justify-content: center;
+                transition-property: height;
+                transition-duration: 1s;
+                transition-timing-function: ease;
+                text-transform: uppercase;
+            }
+            .tdtheme:hover{
+                background-color: orange;
+                border-radius: 40px;
+                width: max-content;
+                height: 50px;
+                border: solid black;
+            }
+            a{
+                text-decoration: none;
+                color: black;
+            }
+            .imgtheme{
+                position: absolute;
+                bottom: 0px;
+                right: 1px;
+
+            }
+            .backarrowtheme{
+                position: absolute;
+                top:0px;
+                right:1px;
+            }
+        </style>
+
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td class="tdtheme"><a href="UserUpdateProfileLink">Update Profile</a></td>
+                <td class="tdtheme"><a href="UserDeleteProfileLink">Request to delete profile</a></td>
+            </tr>
+        </table>
+        <div class="divtheme">
+            <form method="post" action="UpdateUserProfileActionCode">
+                {% csrf_token %}
+            <table>
+                <tr>
+                    <td>
+                        <h3>COMPLETE OR UPDATE YOUR PROFILE HERE</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Enter User Id:</td>
+                    <td><input type="text" name="userId"/></td>
+                </tr>
+                <tr>
+                    <td>Enter Profile Picture here:</td>
+                    <td><input type="file" name="profilepic"/></td>
+                </tr>
+                <tr>
+                    <td>Enter email id here:</td>
+                    <td><input type="email" name="emailId"/> </td>
+                </tr>
+                <tr>
+                    <td>Enter date of birth:</td>
+                    <td><input type="date" name="DOB"/></td>
+                </tr>
+                <tr>
+                    <td>Enter Gender:</td>
+                    <td><select name="gender"><option>Select Gender:</option><option>1.Male</option><option>2.Female</option><option>3.Prefer not to say</option></select></td>
+                </tr>
+                <tr>
+                    <td>Enter Address:</td>
+                    <td><textarea rows="5" cols="20" name="address">Enter address here</textarea></td>
+                </tr>
+                <tr>
+                    <td>Enter Occupation:</td>
+                    <td><input type="text" name="occupation"/></td>
+                </tr>
+                <tr>
+                    <td>Enter Salary:</td>
+                    <td><input type="number" name="salary"/></td>
+                </tr>
+                <tr>
+                    <td>Enter description:</td>
+                    <td><textarea rows="5" cols="20" name="description">Enter description here</textarea></td>
+                </tr>
+                <tr>
+                    <td>Enter guardian name:</td>
+                    <td><input type="text" name="guardianName"/></td>
+                </tr>
+                <tr>
+                    <td>Enter guardian Email id:</td>
+                    <td><input type="email" name="guardianEmailId"/></td>
+                </tr>
+                <tr>
+                    <td>Enter Name of therapist incharge:</td>
+                    <td><select name="inchargeTherapist"><option>1.Therapist A</option><option>2.Therapist B</option><option>3.Therapist C</option></select></td>
+                </tr>
+                <tr>
+                    <td><input type="submit"/></td>
+                </tr>
+            </table>
+            </form>
+        </div>
+    <a href="LogoutLink"><img src="{% static "images/Logout logo 2.png" %}" class="imgtheme"/></a>
+    <a href="UserDashboardReturnLink"><img src="{% static 'images/Back button.png' %}" class="backarrowtheme"/></a>
+    </body>
+</html>
